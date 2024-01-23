@@ -4,7 +4,7 @@ const editvendor = async (req, res) => {
   try {
     const {
       vendorname,
-      bankaccno,
+      bankaccnoedit,
       bankname,
       address1,
       address2,
@@ -14,7 +14,7 @@ const editvendor = async (req, res) => {
     } = req.body;
     const id = req.params.id;
 
-    const find = await Vendor.findOne({ bankaccno });
+    const find = await Vendor.findOne({ bankaccno: bankaccnoedit });
     const findid = await Vendor.findById({ _id: id });
 
     if (!find) {
@@ -26,7 +26,6 @@ const editvendor = async (req, res) => {
     }
 
     findid.vendorname = vendorname;
-    findid.bankaccno = bankaccno;
     findid.bankname = bankname;
     findid.address1 = address1;
     findid.address2 = address2;
