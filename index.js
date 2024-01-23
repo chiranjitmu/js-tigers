@@ -17,7 +17,7 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// mongodbconnection
+// mongodb connection
 mongoose.connect(process.env.MONGOURI);
 
 // app routes
