@@ -17,8 +17,8 @@ const editvendor = async (req, res) => {
     const find = await Vendor.findOne({ bankaccno });
     const findid = await Vendor.findById({ _id: id });
 
-    if (find) {
-      return res.status(500).json({ message: "Vendor already exists!" });
+    if (!find) {
+      return res.status(500).json({ message: "Vendor not exists!" });
     }
 
     if (!findid) {
